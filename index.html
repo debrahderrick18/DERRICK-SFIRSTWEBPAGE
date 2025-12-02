@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GreenGold Agro Ltd | Premium Agriculture</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Montserrat', 'Georgia', serif; background:#0a0a0a; color:#eee; line-height:1.8; overflow-x:hidden; }
+    
+    /* Luxury Header */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2832');
+      background-attachment:fixed; background-position:center; padding:25px 0;
+      box-shadow:0 10px 30px rgba(212,175,55,0.3); position:sticky; top:0; z-index:1000;
+    }
+    .logo h1 {
+      font-size:3.5rem; color:#D4AF37; text-align:center; letter-spacing:4px;
+      text-shadow:0 0 20px rgba(212,175,55,0.6);
+    }
+    .logo p { text-align:center; color:#aaa; font-style:italic; font-size:1.2rem; }
+
+    nav ul {
+      display:flex; justify-content:center; list-style:none; margin-top:15px;
+    }
+    nav ul li a {
+      color:#D4AF37; padding:16px 35px; font-weight:700; text-transform:uppercase;
+      letter-spacing:1px; position:relative; transition:all 0.4s;
+    }
+    nav ul li a::after {
+      content:''; position:absolute; bottom:0; left:50%; width:0; height:3px;
+      background:#D4AF37; transition:0.4s; transform:translateX(-50%);
+    }
+    nav ul li a:hover::after, nav ul li a.active::after { width:80%; }
+    nav ul li a:hover, nav ul li a.active { color:#fff; text-shadow:0 0 10px #D4AF37; }
+    @media (max-width:768px) { nav ul { flex-wrap:wrap; } nav ul li a { padding:12px 20px; } }
+
+    /* Hero Section */
+    .hero {
+      height:90vh; background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+                  url('https://images.unsplash.com/photo-1592982537190-6b7f6b8e2e5d?q=80&w=2832') center/cover no-repeat;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center; color:white; position:relative;
+    }
+    .hero h1 { font-size:5.5rem; color:#D4AF37; margin-bottom:20px; animation:fadeInDown 1.5s; }
+    .hero p { font-size:1.8rem; max-width:900px; animation:fadeInUp 1.5s; }
+    .hero .btn {
+      margin-top:40px; background:#D4AF37; color:#000; padding:18px 50px;
+      border-radius:50px; font-size:1.3rem; font-weight:bold; text-decoration:none;
+      box-shadow:0 10px 30px rgba(212,175,55,0.4); transition:0.4s; animation:fadeIn 2s;
+    }
+    .hero .btn:hover { background:#fff; transform:scale(1.1); }
+
+    /* Sections */
+    section { padding:80px 20px; max-width:1300px; margin:auto; }
+    h2 { font-size:3rem; text-align:center; color:#D4AF37; margin-bottom:60px;
+         position:relative; }
+    h2::after { content:''; width:120px; height:4px; background:#D4AF37;
+                position:absolute; bottom:-20px; left:50%; transform:translateX(-50%); }
+
+    /* Image Gallery Grid */
+    .gallery {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(350px,1fr)); gap:25px;
+      margin:50px 0;
+    }
+    .gallery img {
+      width:100%; height:300px; object-fit:cover; border:4px solid #D4AF37;
+      border-radius:15px; transition:0.5s; box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    }
+    .gallery img:hover { transform:scale(1.05); border-color:#fff; }
+
+    /* Products Table - Luxury Style */
+    table {
+      width:100%; margin:50px auto; border-collapse:separate; border-spacing:0 15px;
+      background:transparent;
+    }
+    th {
+      background:#D4AF37; color:#000; padding:20px; font-size:1.3rem;
+      clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+    }
+    td {
+      background:#1a1a1a; padding:20px; text-align:center; font-size:1.1rem;
+      box-shadow:0 10px 20px rgba(212,175,55,0.1);
+    }
+    tr td:first-child { border-radius:15px 0 0 15px; }
+    tr td:last-child { border-radius:0 15px 15px 0; }
+
+    /* Lists with Icons */
+    .icon-list { max-width:900px; margin:50px auto; }
+    .icon-list li {
+      background:#1a1a1a; padding:20px; margin:15px 0; border-left:6px solid #D4AF37;
+      border-radius:8px; font-size:1.2rem; display:flex; align-items:center;
+      box-shadow:0 5px 15px rgba(0,0,0,0.5);
+    }
+    .icon-list i { color:#D4AF37; font-size:2rem; margin-right:20px; }
+
+    /* Footer */
+    footer {
+      background:#000; padding:60px 20px 30px; text-align:center; border-top:5px solid #D4AF37;
+    }
+    footer img { width:80px; filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(25deg); }
+    footer p { margin-top:20px; color:#888; }
+
+    /* Animations */
+    @keyframes fadeInDown { from { opacity:0; transform:translateY(-50px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(50px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    .page { display:none; }
+    .page.active { display:block; animation:fadeIn 1s; }
+  </style>
+</head>
+<body>
+
+<!-- Page 1: Home -->
+<div id="home" class="page active">
+  <header>
+    <div class="logo">
+      <h1>GreenGold Agro</h1>
+      <p>Premium | Sustainable | Global</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#" class="active" onclick="show('home')">Home</a></li>
+        <li><a href="#" onclick="show('about')">About</a></li>
+        <li><a href="#" onclick="show('products')">Products</a></li>
+        <li><a href="#" onclick="show('services')">Services</a></li>
+        <li><a href="#" onclick="show('contact')">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>GreenGold Agro Ltd</h1>
+    <p>Transforming African Agriculture into Global Excellence</p>
+    <a href="#" class="btn" onclick="show('products')">Explore Our Products</a>
+  </div>
+
+  <section>
+    <h2>Our Premium Crops</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1593111571794-9de4e7f9da1b?q=80&w=800" alt="Golden Maize Fields">
+      <img src="https://images.unsplash.com/photo-1627920855271-3e9679d99389?q=80&w=800" alt="Fresh Vegetables">
+      <img src="https://images.unsplash.com/photo-1603123853882-9dd1e4e7c04b?q=80&w=800" alt="Cashew Harvest">
+      <img src="https://images.unsplash.com/photo-1592982537190-6b7f6b8e2e5d?q=80&w=800" alt="Modern Farming">
+      <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=800" alt="Export Ready">
+      <img src="https://images.unsplash.com/photo-1589927986089-35812388a3c7?q=80&w=800" alt="Organic Farm">
+    </div>
+  </section>
+</div>
+
+<!-- Page 2: About Us -->
+<div id="about" class="page">
+  <header>
+    <div class="logo"><h1>GreenGold Agro</h1><p>Excellence Since 2010</p></div>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="show('home')">Home</a></li>
+        <li><a href="#" class="active" onclick="show('about')">About</a></li>
+        <li><a href="#" onclick="show('products')">Products</a></li>
+        <li><a href="#" onclick="show('services')">Services</a></li>
+        <li><a href="#" onclick="show('contact')">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Our Golden Legacy</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1515150144380-bca9af5b9208?q=80&w=800" alt="Team">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800" alt="Farmers">
+      <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=800" alt="Harvest">
+    </div>
+    <div class="icon-list">
+      <ul>
+        <li><i class="fas fa-leaf"></i> 100% Sustainable & Eco-Friendly Practices</li>
+        <li><i class="fas fa-globe"></i> Export to 15+ Countries Worldwide</li>
+        <li><i class="fas fa-award"></i> Multiple International Quality Awards</li>
+        <li><i class="fas fa-users"></i> Empowering 10,000+ Smallholder Farmers</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<!-- Page 3: Products -->
+<div id="products" class="page">
+  <header>
+    <div class="logo"><h1>GreenGold Agro</h1><p>Premium Products</p></div>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="show('home')">Home</a></li>
+        <li><a href="#" onclick="show('about')">About</a></li>
+        <li><a href="#" class="active" onclick="show('products')">Products</a></li>
+        <li><a href="#" onclick="show('services')">Services</a></li>
+        <li><a href="#" onclick="show('contact')">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Our Premium Export Products</h2>
+    <table>
+      <tr><th>Product</th><th>Grade</th><th>Annual Yield</th><th>Main Markets</th></tr>
+      <tr><td>Premium White Maize</td><td>Grade A+</td><td>30,000 MT</td><td>EU, Asia</td></tr>
+      <tr><td>Raw Cashew Nuts</td><td>Outturn 52+</td><td>22,000 MT</td><td>India, Vietnam</td></tr>
+      <tr><td>Non-GMO Soybeans</td><td>Export Quality</td><td>18,000 MT</td><td>China, Europe</td></tr>
+      <tr><td>Fresh Chili Pepper</td><td>Premium Red</td><td>12,000 MT</td><td>UK, Netherlands</td></tr>
+    </table>
+  </section>
+</div>
+
+<!-- Page 4: Services -->
+<div id="services" class="page">
+  <header>
+    <div class="logo"><h1>GreenGold Agro</h1><p>Our Services</p></div>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="show('home')">Home</a></li>
+        <li><a href="#" onclick="show('about')">About</a></li>
+        <li><a href="#" onclick="show('products')">Products</a></li>
+        <li><a href="#" class="active" onclick="show('services')">Services</a></li>
+        <li><a href="#" onclick="show('contact')">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>End-to-End Agricultural Solutions</h2>
+    <div class="icon-list">
+      <ol>
+        <li><i class="fas fa-seedling"></i> High-Yield Contract Farming Programs</li>
+        <li><i class="fas fa-truck-loading"></i> Full Supply Chain & Cold Storage</li>
+        <li><i class="fas fa-graduation-cap"></i> Free Farmer Training & Extension Services</li>
+        <li><i class="fas fa-shipping-fast"></i> Direct Export Logistics & Documentation</li>
+        <li><i class="fas fa-certificate"></i> Global GAP & Organic Certification Support</li>
+      </ol>
+    </div>
+  </section>
+</div>
+
+<!-- Page 5: Contact -->
+<div id="contact" class="page">
+  <header>
+    <div class="logo"><h1>GreenGold Agro</h1><p>Get In Touch</p></div>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="show('home')">Home</a></li>
+        <li><a href="#" onclick="show('about')">About</a></li>
+        <li><a href="#" onclick="show('products')">Products</a></li>
+        <li><a href="#" onclick="show('services')">Services</a></li>
+        <li><a href="#" class="active" onclick="show('contact')">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Contact GreenGold Agro</h2>
+    <p style="text-align:center;font-size:1.5rem;color:#D4AF37;">
+      <i class="fas fa-envelope"></i> info@greengoldagro.com<br>
+      <i class="fas fa-phone"></i> +233 55 700 9000
+    </p>
+    <div class="gallery" style="margin-top:60px;">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800" alt="Head Office">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800" alt="Farm Visit">
+    </div>
+  </section>
+</div>
+
+<footer>
+  <img src="https://img.icons8.com/ios-filled/100/D4AF37/wheat.png" alt="wheat">
+  <p>© 2025 GreenGold Agro Ltd – Leading Africa’s Agricultural Revolution</p>
+</footer>
+
+<script>
+  function show(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    document.querySelector(`nav a[onclick="show('${pageId}')"]`).classList.add('active');
+    window.scrollTo(0,0);
+  }
+</script>
+</body>
+</html>
